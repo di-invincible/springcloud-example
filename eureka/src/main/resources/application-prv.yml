@@ -1,0 +1,27 @@
+server:
+  port: 10010
+
+spring:
+  application:
+    name: eureka
+  security:
+    user:
+      name: root
+      password: root
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@lanlinker.com:${server.port}/eureka/
+    registry-fetch-interval-seconds: 5
+    register-with-eureka: false #是否从Eureka Server查询注册信息
+    fetch-registry: false #是否将自己注册到Eureka Server 默认为true
+  server:
+    enable-self-preservation: false     #Eureka Server自我保护机制
+  instance:
+    hostname: lanlinker1
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}

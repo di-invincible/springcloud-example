@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: lanlinker-manager
+          uri: lb://lanlinker-manager
+          predicates:
+            - Path=/lanlinker-manager/**
+          filters:
+            - StripPrefix=1
+        - id: lanlinker-cloud-platform
+          uri: lb://lanlinker-cloud-platform
+          predicates:
+            - Path=/lanlinker-cloud-platform/**
+          filters:
+            - StripPrefix=1
+        - id: labor-system
+          uri: lb://labor-system
+          predicates:
+            - Path=/labor-system/**
+          filters:
+            - StripPrefix=1
