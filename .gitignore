@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+/user-service/.mvn/
+/user-service/.gitignore
+/user-service/mvnw.cmd
+/user-service/mvnw
+/ribbon-service/.mvn/
+/ribbon-service/mvnw
+/ribbon-service/mvnw.cmd
