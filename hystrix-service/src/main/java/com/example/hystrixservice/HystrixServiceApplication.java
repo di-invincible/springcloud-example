@@ -1,17 +1,20 @@
-package com.example.userservice;
+package com.example.hystrixservice;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+/**
+ * @author aaron
+ */
+@EnableCircuitBreaker
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("com.example.userservice.mapper")
-public class UserServiceApplication {
+public class HystrixServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserServiceApplication.class, args);
+        SpringApplication.run(HystrixServiceApplication.class, args);
     }
 
 }

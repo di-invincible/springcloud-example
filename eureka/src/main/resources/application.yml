@@ -1,4 +1,5 @@
 spring:
   profiles:
-    active: node1
+#    active: node1
+    active: stand-alone
 

@@ -42,3 +42,6 @@ build/
 /common/HELP.md
 /common/mvnw
 /common/mvnw.cmd
+/hystrix-service/mvnw
+/hystrix-service/mvnw.cmd
+/hystrix-service/.mvn/
