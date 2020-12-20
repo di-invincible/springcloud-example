@@ -38,3 +38,7 @@ build/
 /ribbon-service/.mvn/
 /ribbon-service/mvnw
 /ribbon-service/mvnw.cmd
+/common/.mvn/
+/common/HELP.md
+/common/mvnw
+/common/mvnw.cmd

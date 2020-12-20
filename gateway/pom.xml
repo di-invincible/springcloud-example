@@ -5,11 +5,11 @@
     <parent>
         <artifactId>spring-cloud-example</artifactId>
         <groupId>com.springcloud.example</groupId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <groupId>com.spring.cloud.example.gateway</groupId>
     <artifactId>gateway</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>gateway</name>
     <description>Demo project for gateway</description>
 
