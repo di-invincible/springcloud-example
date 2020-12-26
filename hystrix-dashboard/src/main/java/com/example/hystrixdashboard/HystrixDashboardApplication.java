@@ -1,19 +1,20 @@
-package com.spring.cloud.example.gateway;
+package com.example.hystrixdashboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 /**
- * @author Aaron
+ * @author aaron
  */
-
+@EnableHystrixDashboard
 @EnableDiscoveryClient
 @SpringBootApplication
-public class GatewayApplication {
+public class HystrixDashboardApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class, args);
+        SpringApplication.run(HystrixDashboardApplication.class, args);
     }
 
 }

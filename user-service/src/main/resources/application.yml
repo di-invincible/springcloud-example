@@ -9,6 +9,11 @@ spring:
     username: root
     password: root
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream' #暴露hystrix监控端点
 
 eureka:
   client:

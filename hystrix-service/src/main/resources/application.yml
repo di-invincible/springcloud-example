@@ -1,5 +1,5 @@
 server:
-  port: 8401
+  port: 8402
 spring:
   application:
     name: hystrix-service
@@ -11,16 +11,63 @@ spring:
   redis:
     host: 192.168.1.36
     port: 6379
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream' #暴露hystrix监控端点
+
+
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://root:root@localhost:8001/eureka/
-    registry-fetch-interval-seconds: 5 #\u8868\u793Aeureka client\u95F4\u9694\u591A\u4E45\u53BB\u62C9\u53D6\u670D\u52A1\u6CE8\u518C\u4FE1\u606F\uFF0C\u9ED8\u8BA4\u4E3A30\u79D2
+    registry-fetch-interval-seconds: 5 #表示eureka client间隔多久去拉取服务注册信息，默认为30秒
   instance:
-    lease-expiration-duration-in-seconds: 15  # \u53D1\u5446\u65F6\u95F4\uFF0C15\u79D2\u4E0D\u53D1\u9001\u5C31\u8FC7\u671F \u5373\u670D\u52A1\u7EED\u7EA6\u5230\u671F\u65F6\u95F4\uFF08\u7F3A\u7701\u4E3A90s\uFF09
-    lease-renewal-interval-in-seconds: 5   #\u5FC3\u8DF3\u65F6\u95F4\uFF0C5\u79D2\u53D1\u9001\u4E00\u6B21\u5FC3\u8DF3\uFF08\u7F3A\u7701\u4E3A30s
+    lease-expiration-duration-in-seconds: 15  # 发呆时间，15秒不发送就过期 即服务续约到期时间（缺省为90s）
+    lease-renewal-interval-in-seconds: 5   #心跳时间，5秒发送一次心跳（缺省为30s
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
 
 service-url:
   user-service: http://user-service
+
+
+
+hystrix:
+  command: #用于控制HystrixCommand的行为
+    default:
+      execution:
+        isolation:
+          strategy: THREAD #控制HystrixCommand的隔离策略，THREAD->线程池隔离策略(默认)，SEMAPHORE->信号量隔离策略
+          thread:
+            timeoutInMilliseconds: 1000 #配置HystrixCommand执行的超时时间，执行超过该时间会进行服务降级处理
+            interruptOnTimeout: true #配置HystrixCommand执行超时的时候是否要中断
+            interruptOnCancel: true #配置HystrixCommand执行被取消的时候是否要中断
+          timeout:
+            enabled: true #配置HystrixCommand的执行是否启用超时时间
+          semaphore:
+            maxConcurrentRequests: 10 #当使用信号量隔离策略时，用来控制并发量的大小，超过该并发量的请求会被拒绝
+      fallback:
+        enabled: true #用于控制是否启用服务降级
+      circuitBreaker: #用于控制HystrixCircuitBreaker的行为
+        enabled: true #用于控制断路器是否跟踪健康状况以及熔断请求
+        requestVolumeThreshold: 20 #超过该请求数的请求会被拒绝
+        forceOpen: false #强制打开断路器，拒绝所有请求
+        forceClosed: false #强制关闭断路器，接收所有请求
+      requestCache:
+        enabled: true #用于控制是否开启请求缓存
+  collapser: #用于控制HystrixCollapser的执行行为
+    default:
+      maxRequestsInBatch: 100 #控制一次合并请求合并的最大请求数
+      timerDelayinMilliseconds: 10 #控制多少毫秒内的请求会被合并成一个
+      requestCache:
+        enabled: true #控制合并请求是否开启缓存
+  threadpool: #用于控制HystrixCommand执行所在线程池的行为
+    default:
+      coreSize: 10 #线程池的核心线程数
+      maximumSize: 10 #线程池的最大线程数，超过该线程数的请求会被拒绝
+      maxQueueSize: -1 #用于设置线程池的最大队列大小，-1采用SynchronousQueue，其他正数采用LinkedBlockingQueue
+      queueSizeRejectionThreshold: 5 #用于设置线程池队列的拒绝阀值，由于LinkedBlockingQueue不能动态改版大小，使用时需要用该参数来控制线程数

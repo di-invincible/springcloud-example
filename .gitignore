@@ -45,3 +45,12 @@ build/
 /hystrix-service/mvnw
 /hystrix-service/mvnw.cmd
 /hystrix-service/.mvn/
+/hystrix-dashboard/.mvn/
+/hystrix-dashboard/mvnw
+/hystrix-dashboard/mvnw.cmd
+/turbine-service/.mvn/
+/turbine-service/mvnw
+/turbine-service/mvnw.cmd
+/feign-service/mvnw
+/feign-service/mvnw.cmd
+/feign-service/.mvn/
