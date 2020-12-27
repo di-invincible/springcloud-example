@@ -57,3 +57,6 @@ build/
 /zuul-proxy/mvnw
 /zuul-proxy/mvnw.cmd
 /zuul-proxy/.mvn/
+/config-service/mvnw
+/config-service/mvnw.cmd
+/config-service/.mvn/

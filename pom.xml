@@ -41,6 +41,7 @@
         <module>turbine-service</module>
         <module>feign-service</module>
         <module>zuul-proxy</module>
+        <module>config-service</module>
     </modules>
 
 
