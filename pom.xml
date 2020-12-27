@@ -42,6 +42,7 @@
         <module>feign-service</module>
         <module>zuul-proxy</module>
         <module>config-service</module>
+        <module>config-client</module>
     </modules>
 
 

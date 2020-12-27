@@ -60,3 +60,10 @@ build/
 /config-service/mvnw
 /config-service/mvnw.cmd
 /config-service/.mvn/
+/config-client/.mvn/
+/config-client/mvnw
+/config-client/mvnw.cmd
+
+/*/.mvn/
+/*/mvnw
+/*/mvnw.cmd
