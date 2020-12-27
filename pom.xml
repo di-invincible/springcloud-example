@@ -43,6 +43,7 @@
         <module>zuul-proxy</module>
         <module>config-service</module>
         <module>config-client</module>
+        <module>config-security-server</module>
     </modules>
 
 
