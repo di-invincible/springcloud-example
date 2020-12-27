@@ -2,7 +2,7 @@ package com.example.common.result;
 
 /**
  * 封装API的错误码
- * @author wd
+ * @author aaron
  * @since 2020-09-22
  */
 public interface IErrorCode {

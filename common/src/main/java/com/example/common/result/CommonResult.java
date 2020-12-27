@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 通用返回对象
  *
- * @author wd
+ * @author aaron
  * @since 2020-09-22
  */
 public class CommonResult<T> implements Serializable {

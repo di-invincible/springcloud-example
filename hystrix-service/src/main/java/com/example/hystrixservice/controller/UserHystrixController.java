@@ -15,7 +15,7 @@ import java.util.concurrent.Future;
 
 /**
  * 服务熔断测试接口
- * @author wd
+ * @author aaron
  * @since 2020-12-20
  */
 @RestController

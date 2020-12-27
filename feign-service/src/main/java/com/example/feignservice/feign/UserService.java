@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author wd
+ * @author aaron
  * @since 2020-12-26
  */
 @FeignClient(value = "user-service" ,fallback = UserFallbackService.class)

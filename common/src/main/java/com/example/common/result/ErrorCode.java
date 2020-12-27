@@ -4,7 +4,7 @@ package com.example.common.result;
 /**
  * 枚举了一些常用API操作码
  *
- * @author wd
+ * @author aaron
  * @since 2020-09-22
  */
 public enum ErrorCode implements IErrorCode{

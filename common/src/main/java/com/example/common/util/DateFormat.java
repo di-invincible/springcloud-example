@@ -1,7 +1,7 @@
 package com.example.common.util;
 
 /**
- * @author wd
+ * @author aaron
  * @since 2020-10-21
  */
 public class DateFormat {

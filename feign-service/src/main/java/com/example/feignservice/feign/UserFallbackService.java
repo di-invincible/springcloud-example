@@ -6,7 +6,7 @@ import com.example.feignservice.entity.dto.User;
 import org.springframework.stereotype.Component;
 
 /**
- * @author wd
+ * @author aaron
  * @since 2020-12-26
  */
 @Component

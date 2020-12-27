@@ -2,7 +2,12 @@ package com.example.configsecurityserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
+/**
+ * @author aaron
+ */
+@EnableConfigServer
 @SpringBootApplication
 public class ConfigSecurityServerApplication {
 
