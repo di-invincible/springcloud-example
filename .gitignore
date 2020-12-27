@@ -54,3 +54,6 @@ build/
 /feign-service/mvnw
 /feign-service/mvnw.cmd
 /feign-service/.mvn/
+/zuul-proxy/mvnw
+/zuul-proxy/mvnw.cmd
+/zuul-proxy/.mvn/
