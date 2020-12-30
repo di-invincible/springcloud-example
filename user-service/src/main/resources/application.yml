@@ -8,6 +8,11 @@ spring:
     url: jdbc:mysql://localhost:3306/springcloud_example?useSSL=false&serverTimezone=Hongkong&allowPublicKeyRetrieval=true
     username: root
     password: root
+  zipkin:
+    base-url: http://localhost:9411
+    sleuth:
+      sampler:
+        probability: 0.1 #设置Sleuth的抽样收集概率
 
 management:
   endpoints:

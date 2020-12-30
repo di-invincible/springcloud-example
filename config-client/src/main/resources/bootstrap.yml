@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 9002
 spring:
   application:
     name: config-client
@@ -23,6 +23,14 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+  rabbitmq:
+    host: 192.168.1.33
+    port: 5672
+    username: test
+    password: test
+    virtual-host: /test
+
+
 management:
   endpoints:
     web:
