@@ -44,6 +44,8 @@
         <module>config-service</module>
         <module>config-client</module>
         <module>config-security-server</module>
+        <module>admin-server</module>
+        <module>admin-client</module>
     </modules>
 
 
@@ -117,8 +119,9 @@
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>${admin-starter-server.version}</version>
+            <version>2.2.0</version>
         </dependency>
+
         <!--MinIO JAVA SDK-->
         <dependency>
             <groupId>io.minio</groupId>
