@@ -4,6 +4,7 @@ import com.example.common.result.CommonResult;
 import com.example.feignservice.entity.dto.User;
 import com.example.feignservice.feign.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 public class UserFeignController {
+    @Qualifier("user-service")
     @Autowired
     private UserService userService;
 
