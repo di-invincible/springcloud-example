@@ -3,7 +3,7 @@ server:
   servlet:
     session:
       cookie:
-        name: OAUTH2-CLIENT-SESSIONID #\u9632\u6B62Cookie\u51B2\u7A81\uFF0C\u51B2\u7A81\u4F1A\u5BFC\u81F4\u767B\u5F55\u9A8C\u8BC1\u4E0D\u901A\u8FC7
+        name: OAUTH2-CLIENT-SESSIONID #防止Cookie冲突，冲突会导致登录验证不通过
 
 oauth2-server-url: http://localhost:9401
 
@@ -11,7 +11,7 @@ spring:
   application:
     name: oauth2-client
 security:
-  oauth2: #\u4E0Eoauth2-server\u5BF9\u5E94\u7684\u914D\u7F6E
+  oauth2: #与oauth2-server对应的配置
     client:
       client-id: admin
       client-secret: admin123456
@@ -21,3 +21,15 @@ security:
       jwt:
         key-uri: ${oauth2-server-url}/oauth/token_key
 
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8001/eureka/
+    registry-fetch-interval-seconds: 5 #表示eureka client间隔多久去拉取服务注册信息，默认为30秒
+  instance:
+    lease-expiration-duration-in-seconds: 15  # 发呆时间，15秒不发送就过期 即服务续约到期时间（缺省为90s）
+    lease-renewal-interval-in-seconds: 5   #心跳时间，5秒发送一次心跳（缺省为30s
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
