@@ -22,6 +22,10 @@ security:
         key-uri: ${oauth2-server-url}/oauth/token_key
 
 
+github:
+  client_id: 43d26c52160c53df3d01
+  client_secret: c85cbce8ca004d0151bf423868f40385b5eeaf04
+
 
 eureka:
   client:

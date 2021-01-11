@@ -20,6 +20,10 @@ management:
       exposure:
         include: 'hystrix.stream' #暴露hystrix监控端点
 
+github:
+  client_id: 43d26c52160***
+  client_secret: c85cbce8ca004d0***
+
 eureka:
   client:
     serviceUrl:
